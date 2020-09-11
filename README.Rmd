@@ -1,0 +1,49 @@
+---
+title: "Compile a pdf version of adv-R"
+output:
+  pdf_document: default
+  html_document: default
+---
+First of all, update the Rstudio & R and install the packages to the latest version in order to achieve a perfect result.
+
+Install R bookdown package and R markdown package.
+install.package("bookdown")
+install.package("rmarkdown")
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Download the adv_r using git clone and follow the instruction given by the websites generates by Yihui Xie
+
+I used the "git clone" from Hadley Wickham’s Github website to get the book folder (git clone https://github.com/hadley/adv-r.git) to my own personal laptop. Then open the adv-r.Rproj to start.
+Then, go to the website (https://github.com/rstudio/bookdown-demo) to download the zip file for instruction. Follow the Yihui's steps and instructions on the website (https://bookdown.org/yihui/bookdown/get-started.html)
+
+Then try the document "index.rmd" to find the packages that are still miising by click Build in the menu and follow with the build book button. Or using Knit -- Knit to pdf in menu part.
+
+```{r cars}
+summary(cars)
+```
+
+## Packages missing
+
+1. install.packages('tinytex)
+  tinytex::install_tinytex()
+2. install devtools packages
+3. devtools::install_github("hadley/sloop")
+4. devtools::install_github("hadley/emo")
+
+## Error massages after following all above steps
+
+1. Error: LaTeX failed to compile _main.tex. See https://yihui.org/tinytex/r/#debugging for debugging tips. See _main.log for more info.
+Solution: install the "tinytex" again and get the package update    tinytex::tlmgr_update()
+## Result
+
+Output created: _book/adv_r.pdf
+[1] "/Users/guandi/Documents/stat5361/adv_r/_book/adv_r.pdf"
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
